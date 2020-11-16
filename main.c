@@ -94,10 +94,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-		HAL_Delay(200);
-		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
-    /* USER CODE BEGIN 3 */
+    /* USER CODE END WHILE */ 
+		/* USER CODE BEGIN 3 */
+		if(0 == HAL_GPIO_ReadPin(KEY1_GPIO_Port,KEY1_Pin) )
+		{
+			HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_SET);
+		}
+		if(0 == HAL_GPIO_ReadPin(KEY2_GPIO_Port,KEY2_Pin) )
+		{
+			HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_RESET);
+		}
+  
   }
   /* USER CODE END 3 */
 }
